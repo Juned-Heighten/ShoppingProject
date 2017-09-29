@@ -14,5 +14,7 @@
 	${contextRoot} Says
 
 	<h1>${greeting}</h1>
+	
+	<h1>${MSG}</h1>
 </body>
 </html>
