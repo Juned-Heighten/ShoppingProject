@@ -14,6 +14,26 @@ public class PageController {
 	public String showPage(ModelMap m)
 	{   
 		m.addAttribute("greeting", "Welcome To Online Shopping Project");
+		m.addAttribute("title","Home");
+		m.addAttribute("userClickHome",true);
+		return "home";
+	}
+	
+	
+	@RequestMapping(value="/contact")
+	public String contact(ModelMap m)
+	{   System.out.println("Contact Method");
+		m.addAttribute("title", "Contact Us");
+		m.addAttribute("cnt",true);
+		return "home";
+	}
+	
+	
+	@RequestMapping(value="/about")
+	public String about(ModelMap m)
+	{   System.out.println("About Us method"); 
+		m.addAttribute("title", "About Us");
+		m.addAttribute("abt",true);
 		return "home";
 	}
 	@RequestMapping("/test")
