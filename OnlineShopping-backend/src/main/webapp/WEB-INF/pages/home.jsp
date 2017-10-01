@@ -6,6 +6,7 @@
 <spring:url var="js" value="/resources/js"></spring:url>
 <spring:url var="images" value="/resources/images"></spring:url>
 <spring:url var="popper" value="/resources/popper"></spring:url>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <head>
@@ -46,6 +47,12 @@
    
    <c:if test="${abt eq true}">
 	<%@include file="about.jsp" %> 
+	
+	<!-- /.container -->
+   </c:if>
+   
+   <c:if test="${sap eq true or scp eq true}">
+	<%@include file="listProducts.jsp" %> 
 	
 	<!-- /.container -->
    </c:if>

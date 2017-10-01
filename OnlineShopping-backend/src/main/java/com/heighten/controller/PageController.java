@@ -2,6 +2,8 @@ package com.heighten.controller;
 
 import java.util.List;
 
+import javax.ws.rs.Path;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -69,5 +71,33 @@ public class PageController {
 		//mv.setViewName("home");
 		return mv;
 	}
+	
+	/**
+	 * Show All Products
+	 */
+	@RequestMapping("/show/all/products")
+	public String showAllProducts(ModelMap m)
+	{   
+		m.addAttribute("llistCat", dao.list());
+		m.addAttribute("title", "All Products");
+		m.addAttribute("sap", true);
+		return "home";
+	}   
+	
+	/**
+	 * Load Products on the basis of Category
+	 */
+	
+	@RequestMapping("/show/category/{id}/products")
+	public String showCategoryProduct(@PathVariable("id") int id,ModelMap m)
+	{   Category c=null;
+		c=dao.get(id);
+		m.addAttribute("c", c);
+		m.addAttribute("listCat", dao.list());
+		m.addAttribute("title", c.getName());
+		m.addAttribute("scp", true);
+		return "home";
+	}
+	
 
 }
