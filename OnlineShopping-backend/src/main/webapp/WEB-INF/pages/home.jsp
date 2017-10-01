@@ -7,6 +7,7 @@
 <spring:url var="images" value="/resources/images"></spring:url>
 <spring:url var="popper" value="/resources/popper"></spring:url>
 
+
 <head>
 
 <meta charset="utf-8">

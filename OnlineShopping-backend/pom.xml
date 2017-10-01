@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>HeightenIndia</groupId>
-	<artifactId>OnlineShopping-backend</artifactId>
+	<artifactId>OnlineShopping-Frontend</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>OnlineShopping-backend Maven Webapp</name>
@@ -12,6 +12,13 @@
 		<spring.version>4.3.6.RELEASE</spring.version>
 	</properties>
 	<dependencies>
+	<dependency>
+  <groupId>HeightenIndia</groupId>
+  <artifactId>OnlineShoppingProject-Bakend</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+	
+	</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
