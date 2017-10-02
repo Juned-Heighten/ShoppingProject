@@ -1,11 +1,21 @@
 package com.h.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Category {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	@Column(name="image_url")
 	private String imageUrl;
 	private String descriptsion;
+	@Column(name="is_active")
 	private boolean active=true;
 	public int getId() {
 		return id;
@@ -37,6 +47,12 @@ public class Category {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", imageUrl=" + imageUrl + ", descriptsion=" + descriptsion
+				+ ", active=" + active + "]";
+	}
+	
 	
 	
 

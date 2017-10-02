@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="/resources/css"></spring:url>
 <spring:url var="js" value="/resources/js"></spring:url>
 <spring:url var="images" value="/resources/images"></spring:url>
 <spring:url var="popper" value="/resources/popper"></spring:url>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <head>
@@ -17,7 +17,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Online Shopping ${title} </title>
+<title>Online Shopping ${title}</title>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -29,44 +29,46 @@
 </head>
 
 <body>
+	<div class="wrapper">
+		<!-- Navigation -->
+		<%@ include file="./shared/myNavigationBar.jsp"%>
 
-	<!-- Navigation -->
-	<%@ include file="./shared/myNavigationBar.jsp"%>
+		<!-- Page Content -->
+		<div class="content">
+			<c:if test="${userClickHome eq true}">
+				<%@include file="homes.jsp"%>
+				<!-- /.container -->
+			</c:if>
 
-	<!-- Page Content -->
-	<c:if test="${userClickHome eq true}">
-	<%@include file="homes.jsp" %>
-	<!-- /.container -->
-   </c:if>
-   
-   <!-- Load only when user click on contact us -->
-   <c:if test="${cnt eq true}">
-	  <%@include file="contact.jsp" %>
-	<!-- /.container -->
-   </c:if>
-   
-   <c:if test="${abt eq true}">
-	<%@include file="about.jsp" %> 
-	
-	<!-- /.container -->
-   </c:if>
-   
-   <c:if test="${sap eq true or scp eq true}">
-	<%@include file="listProducts.jsp" %> 
-	   
-	<!-- /.container -->
-   </c:if>
-	<!-- Footer -->
-	 <%@include file="./shared/footer.jsp" %>
-	
+			<!-- Load only when user click on contact us -->
+			<c:if test="${cnt eq true}">
+				<%@include file="contact.jsp"%>
+				<!-- /.container -->
+			</c:if>
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.min.js"></script>
-	<script src="${popper}/popper.min.js"></script>
-	<script src="${js}/bootstrap.min.js"></script>
-	
-	
+			<c:if test="${abt eq true}">
+				<%@include file="about.jsp"%>
 
+				<!-- /.container -->
+			</c:if>
+
+			<c:if test="${sap eq true or scp eq true}">
+				<%@include file="listProducts.jsp"%>
+
+				<!-- /.container -->
+			</c:if>
+		</div>
+		<!-- Footer -->
+		<%@include file="./shared/footer.jsp"%>
+
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="${js}/jquery.min.js"></script>
+		<script src="${popper}/popper.min.js"></script>
+		<script src="${js}/bootstrap.min.js"></script>
+
+
+	</div>
 </body>
-  
+
 </html>
