@@ -19,24 +19,31 @@ public class CategoryDaoImpl implements CategoryDao {
 		c.setImageUrl("CAT_1.png");
 		categories.add(c);
 		Category c1=new Category();
-		c1.setId(1);
+		c1.setId(2);
 		c1.setName("TV");
 		c1.setDescriptsion("This is HP TV");
 		c1.setImageUrl("CAT_2.png");
 		categories.add(c1);
 		Category c2=new Category();
-		c2.setId(1);
+		c2.setId(3);
 		c2.setName("Banana");
 		c2.setDescriptsion("This is HP Banana");
 		c2.setImageUrl("CAT_3.png");
 		categories.add(c2);
 		
 		Category c3=new Category();
-		c3.setId(1);
+		c3.setId(4);
 		c3.setName("Mango");
 		c3.setDescriptsion("This is HP Banana");
 		c3.setImageUrl("CAT_3.png");
 		categories.add(c3);
+		
+		Category c4=new Category();
+		c4.setId(5);  
+		c4.setName("Big Data");
+		c4.setDescriptsion("This is HP Banana");
+		c4.setImageUrl("CAT_3.png");
+		categories.add(c4);
 		
 	}
 

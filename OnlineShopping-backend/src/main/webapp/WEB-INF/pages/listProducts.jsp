@@ -19,33 +19,33 @@
 			<div class="row">
 
 				<div class="col-lg-12">
-				<c:if test="${sap}">
-					<ol class="breadcrumb">
+					<c:if test="${sap==true}">
+						<ol class="breadcrumb">
 
-						<li><a href="${pageContext.request.contextPath}/home">Home</a>
-						<li>All Products</li>
-
-
-
-
-					</ol>
-
-</c:if>
-
-
-<c:if test="${scp}">
-					<ol class="breadcrumb">
-
-						<li><a href="${pageContext.request.contextPath}/home">Home</a>
-						<li>Category</li>
-						<li>${c.name}</li>
+							<li><a href="${pageContext.request.contextPath}/home">Home</a>
+							<li>All Products</li>
 
 
 
 
-					</ol>
+						</ol>
 
-</c:if>
+					</c:if>
+
+
+					<c:if test="${scp==true}">
+						<ol class="breadcrumb">
+
+							<li><a href="${pageContext.request.contextPath}/home">Home</a>
+							<li>Category</li>
+							<li>${c.name}</li>
+
+
+
+
+						</ol>
+
+					</c:if>
 				</div>
 
 			</div>

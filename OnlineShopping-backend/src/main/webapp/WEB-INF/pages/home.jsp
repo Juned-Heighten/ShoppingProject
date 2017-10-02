@@ -53,7 +53,7 @@
    
    <c:if test="${sap eq true or scp eq true}">
 	<%@include file="listProducts.jsp" %> 
-	
+	   
 	<!-- /.container -->
    </c:if>
 	<!-- Footer -->

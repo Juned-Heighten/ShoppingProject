@@ -78,7 +78,8 @@ public class PageController {
 	@RequestMapping("/show/all/products")
 	public String showAllProducts(ModelMap m)
 	{   
-		m.addAttribute("llistCat", dao.list());
+		List<Category> listCat=dao.list();
+		m.addAttribute("listCat", listCat);
 		m.addAttribute("title", "All Products");
 		m.addAttribute("sap", true);
 		return "home";
