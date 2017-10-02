@@ -82,7 +82,7 @@ public class PageController {
 		m.addAttribute("listCat", listCat);
 		m.addAttribute("title", "All Products");
 		m.addAttribute("sap", true);
-		return "home";
+		return "home";  
 	}   
 	
 	/**
