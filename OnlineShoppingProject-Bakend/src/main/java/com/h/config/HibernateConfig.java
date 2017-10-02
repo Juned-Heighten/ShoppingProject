@@ -13,14 +13,16 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.h.dto.Category;
+
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages="com")
-
+    
 public class HibernateConfig {
 	
 	private static final String DB_DRIVER="org.h2.Driver";
-	private static final String DB_URL="jdbc:h2:tcp://localhost/~/onlineshopping";
+	private static final String DB_URL="jdbc:h2:tcp://localhost/~/test";
 	private static final String DB_USER="sa";
 	private static final String DB_PWD="";
 	private static final String DB_DIALECT="org.hibernate.dialect.H2Dialect";
@@ -38,11 +40,12 @@ public class HibernateConfig {
 	
 	@Bean
 	
-	public SessionFactory getSF(DataSource ds)
+	public SessionFactory getSF(DataSource ds) throws Exception
 	{
 		LocalSessionFactoryBuilder fb=new LocalSessionFactoryBuilder(ds);
 		fb.addProperties(fb.getProperties());
-		fb.scanPackages("com");
+		fb.addAnnotatedClasses(Category.class);
+		//fb.scanPackages("com");
 		return fb.buildSessionFactory();
 	}
 	
@@ -52,7 +55,7 @@ public class HibernateConfig {
 		Properties p=new Properties();
 		p.put("hibernate.dialect", DB_DIALECT);
 		p.put("hibernate.show_sql", "true");
-		p.put("hibernate.format_sql","true");
+		//p.put("hibernate.format_sql","true");
 		return p;
 	}
 	

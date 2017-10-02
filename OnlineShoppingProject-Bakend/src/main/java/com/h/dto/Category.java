@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="CAT_TAB")
 public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -14,6 +16,7 @@ public class Category {
 	private String name;
 	@Column(name="image_url")
 	private String imageUrl;
+	@Column(name="description")
 	private String descriptsion;
 	@Column(name="is_active")
 	private boolean active=true;

@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.h.dao.CategoryDao;
 import com.h.dto.Category;
 
-@Repository
+@Repository("catDao")
 public class CategoryDaoImpl implements CategoryDao {
 	@Autowired
 	private SessionFactory sf;
@@ -83,3 +83,4 @@ public class CategoryDaoImpl implements CategoryDao {
 	}
 
 }
+   
