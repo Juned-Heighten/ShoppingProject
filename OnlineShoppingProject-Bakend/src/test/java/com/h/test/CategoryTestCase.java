@@ -23,7 +23,7 @@ public class CategoryTestCase {
 		ctx.scan("com");
 		ctx.refresh();
 		dao=(CategoryDao)ctx.getBean("catDao");
-	}
+	 }
 	
 	@Test
 	public void testAddCategory()
