@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
+@Entity   
+@JsonIgnoreProperties(value = { "active" })
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,8 +25,9 @@ public class Product {
 	@Column(name="unit_price")
 	private int unitprice;
 	private int quantity;
-	@JsonIgnore  
+	 
 	@Column(name="is_active")
+	@JsonIgnore 
 	private boolean isActive;
 	@JsonIgnore
 	@Column(name="category_id")
