@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.h.dto.Category;
+import com.h.dto.Product;
 
 @Configuration
 @EnableTransactionManagement
@@ -45,6 +46,7 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder fb=new LocalSessionFactoryBuilder(ds);
 		fb.addProperties(fb.getProperties());
 		fb.addAnnotatedClasses(Category.class);
+		fb.addAnnotatedClasses(Product.class);
 		//fb.scanPackages("com");
 		return fb.buildSessionFactory();
 	}
@@ -55,7 +57,7 @@ public class HibernateConfig {
 		Properties p=new Properties();
 		p.put("hibernate.dialect", DB_DIALECT);
 		p.put("hibernate.show_sql", "true");
-		//p.put("hibernate.format_sql","true");
+		p.put("hibernate.format_sql","true");
 		return p;
 	}
 	
