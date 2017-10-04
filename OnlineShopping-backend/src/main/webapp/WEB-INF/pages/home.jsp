@@ -16,15 +16,21 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-
+  <c:set var="cr" value="${pageContext.request.contextPath}"/>
 <title>Online Shopping ${title}</title>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Theme CSS -->
 <link href="${css}/bstraptheme.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/shop-homepage.css" rel="stylesheet">
+<script>
+window.menu=${title}
+window.ctx='${cr}';
+
+</script>
 
 </head>
 
@@ -66,6 +72,14 @@
 		<script src="${js}/jquery.min.js"></script>
 		<script src="${popper}/popper.min.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
+		
+		<script src="${js}/datatables.min.js"></script>
+		<!-- Data Table Bootstrap script -->
+		
+		
+		<script src="${js}/myApp.js"></script>
+		
+		
 
 
 	</div>
