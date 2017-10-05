@@ -32,7 +32,7 @@ if($table.length)
     			data:'code',
     				"mRender": function(data,type,row)
     				{
-    					return '<img src="http://localhost:8888/OnlineShopping-backend/resources/images/'+data+'.jpg"/ class="dataTableImg">';
+    					return '<img src="http://localhost:8888/OnlineShopping-backend/resources/images/'+data+'.jpg" class="dataTableImg"/ >';
     				}
     		},
     		

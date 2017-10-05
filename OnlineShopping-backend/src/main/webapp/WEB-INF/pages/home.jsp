@@ -63,6 +63,13 @@ window.ctx='${cr}';
 
 				<!-- /.container -->
 			</c:if>
+			
+			
+			<c:if test="${userClickShowProduct eq true}">
+				<%@include file="showSingleProduct.jsp"%>
+
+				<!-- /.container -->
+			</c:if>
 		</div>
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>

@@ -2,8 +2,6 @@ package com.heighten.controller;
 
 import java.util.List;
 
-import javax.ws.rs.Path;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,13 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.h.dao.CategoryDao;
+import com.h.dao.ProductDao;
 import com.h.dto.Category;
+import com.h.dto.Product;
 
 @Controller
 public class PageController {
 	
 	@Autowired
 	private CategoryDao dao;
+	@Autowired
+	ProductDao pDao;
 	
 	@RequestMapping("/home")
 	public String showPage(ModelMap m)
@@ -99,6 +101,23 @@ public class PageController {
 		m.addAttribute("scp", true);
 		return "home";
 	}
-	
+	/**
+	 * View Single Poduct
+	 */
+	@RequestMapping(value="/show/{id}/products")
+	public ModelAndView showSingleProduct(@PathVariable int id)
+	{
+		ModelAndView mv=null;
+		Product p=null;
+		mv=new ModelAndView("home");
+		p=pDao.get(id);
+		p.setViews(p.getViews()+1);
+		pDao.update(p);
+	 	mv.addObject("title", p.getName());
+		mv.addObject("product", p);
+		mv.addObject("userClickShowProduct",true);
+		return mv;
+		
+	}
 
 }
