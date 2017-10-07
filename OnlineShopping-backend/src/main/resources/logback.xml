@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<confiuration>
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>
+				%-5level %msg %d{HH:mm:ss.SSS} %logger{36} %n
+
+			</Pattern>
+
+		</encoder>
+
+		<root>
+			<appender-ref ref="consoleAppender" />
+
+		</root>
+
+		<logger name="com.heighten" level="INFO">
+			<appender-ref ref="consoleAppender" />
+
+		</logger>
+        </appender>
+</confiuration>

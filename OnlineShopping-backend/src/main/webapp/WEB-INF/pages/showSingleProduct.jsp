@@ -29,11 +29,33 @@
 <p>${product.description}</p>
 <hr/>
 <h4>Price:<strong>&#8377; ${product.unitprice}</strong></h4>
-<h4>Quantity Available: ${product.quantity}</h4>
+
+<c:choose>
+    <c:when test="${product.quantity<1}">
+    <h4>Quantity Available: <span style="color:red">Out Of Stock</h4>
+</c:when>
+<c:otherwise>
+   <h4>Quantity Available: ${product.quantity}</h4>
+</c:otherwise>
+</c:choose>
+
+
+
+<c:choose>
+    <c:when test="${product.quantity<1}">
+    <a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>
+</c:when>
+<c:otherwise>
+   <a href="http://localhost:8888/OnlineShopping-backend/cart/add/${product.categoryId}/products" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>
+</c:otherwise>
+</c:choose>
+
+
+
 
 <a href="${pageContext.request.contextPath}/show/all/products" class="btn btn-primary">
 <span class="glyphicon glyphicon-eye-open"></span>Back</a>
-<a href="http://localhost:8888/OnlineShopping-backend/cart/add/${product.categoryId}/products" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>
+
 </div>
 </div>
 </div>
