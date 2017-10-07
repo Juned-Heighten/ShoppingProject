@@ -12,7 +12,7 @@ import com.h.dao.CategoryDao;
 import com.h.dto.Category;
 import com.h.dto.Product;
 
-@Controller
+@Controller  
 @RequestMapping("/manage")
 public class ManagementController {
 	@Autowired
