@@ -14,6 +14,10 @@
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/about">About</a></li>
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/show/all/products">View Products</a>
 					</li>
+					
+					
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/manage/products">Manage Product</a>
+					</li>
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/contact">Contact</a>
 					</li>
 				</ul>
