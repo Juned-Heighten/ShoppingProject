@@ -15,7 +15,7 @@ import com.h.dto.Product;
 @Controller  
 @RequestMapping("/manage")
 public class ManagementController {
-	@Autowired
+	@Autowired 
 	private CategoryDao cDao;
 
 	
