@@ -92,6 +92,7 @@ window.ctx='${cr}';
 		
 		
 		<script src="${js}/myApp.js"></script>
+		 <script src="${js}/bootbox.min.js"></script>
 		
 		
 

@@ -7,22 +7,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity   
-@JsonIgnoreProperties(value = { "active" })
+
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String code;
+	@NotBlank(message="Please enter name")
 	private String name;
+	@NotBlank(message="please enter brand")
 	private String brand;
-	@JsonIgnore
+	
+	@NotBlank(message="please enter description")
 	private String description;
 	@Column(name="unit_price")
+	@Min(value=1,message="Price can not be less than 1" )
 	private int unitprice;
 	private int quantity;
 	 
@@ -34,10 +43,18 @@ public class Product {
 	private int categoryId;
 	@JsonIgnore
 	@Column(name="supplier_id")
-	private int supplierId;
+	private int supplierId;  
 	private int purchases;
 	private int views;
+	@Transient
+	private MultipartFile file;
 	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	public Product()
 	{
 		// Create random unique code as soon as product is generated
