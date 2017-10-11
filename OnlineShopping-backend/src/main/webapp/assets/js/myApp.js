@@ -96,35 +96,6 @@ if($alert.length)
 	  },3000 )
 	}
      
-$('.switch input[type="checkbox"]').on('change', function(){
-	var checkbox=$(this);
-	var checked=checkbox.prop('checked');
-	var dMsg=(checked)? 'You want to activate the Product?':
-		'You want to Deactivate the Product?';
-	var value=checkbox.prop('value');
-	bootbox.confirm({
-		size:'medium',
-		title:'Product Activation & Deactivation',
-		message:dMsg,
-		callback: function(confirmed){
-			if(confirmed)
-				{
-				   console.log(value);
-				   bootbox.alert({
-					   size:"medium",
-					   title:"Information",
-					   message:"You are going to perform Operation on Product"+value
-				   });
-				}
-			else
-				{
-				  checkbox.prop('checked',!checked);
-				}
-		}
-	});
-	
-});
-
 
 
 
@@ -213,7 +184,7 @@ if($aProducttable.length)
   			"mRender": function(data,type,row)
   			{
   				var str='';
-  				str+='<a href="http://localhost:8888/OnlineShopping-backend/manage/'+data+'/products"class="btn btn-warning">';
+  				str+='<a href="http://localhost:8888/OnlineShopping-backend/manage/'+data+'/products" class="btn btn-warning">';
                         
                 str+= '<span class="glyphicon glyphicon-pencil"></span></a>';
                 return str;
@@ -222,11 +193,76 @@ if($aProducttable.length)
   			
   		},
   	],
+  	initComplete: function () {
+		var api = this.api();
+		api.$('.switch input[type="checkbox"]').on('change' , function() {							
+			var dText = (this.checked)? 'You want to activate the Product?': 'You want to de-activate the Product?';
+			var checked = this.checked;
+			var checkbox = $(this);
+			debugger;
+		    bootbox.confirm({
+		    	size: 'medium',
+		    	title: 'Product Activation/Deactivation',
+		    	message: dText,
+		    	callback: function (confirmed) {
+			        if (confirmed) {
+			        	var activateUrl='http://localhost:8888/OnlineShopping-backend/manage/products/'+checkbox.prop('value')+'/activation';
+			        	$.post(activateUrl,function(data){
+			        		 bootbox.alert({
+                                 size:'medium',
+                                 title:'Information',
+                                 message:data 
+});   
+			        	})
+			           
+			        }
+			        else {							        	
+			        	checkbox.prop('checked', !checked);
+			        }
+		    	}
+		    });																											
+		});
+			
+
+}
 	    	
 	    });  
 	}
 
 
+var $categoryForm=$('#categoryForm');
+if($categoryForm.length)
+	{
+	$categoryForm.validate({
+		rules:{
+			name:{
+				required:true,
+				minLength:2
+			},
+			descriptsion:{
+				required:true
+			}
+		},
+		messages:{
+			name:{
+				required:'Please Add the category name',
+				minLength:'The category name should not be less than 2'
+			},
+			descriptsion:{
+				required:'Please add a description'
+			}
+				
+		},
+		errorElenet:'em',
+		errorplacement:function(error,element)
+		{
+			error.addClass('help-block');
+			error.insertAfter(element);
+		}
+
+		
+	})
+	}
 
 
 
