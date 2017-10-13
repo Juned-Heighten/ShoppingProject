@@ -31,7 +31,7 @@ public class HibernateConfig {
 	private static final String DB_PWD="";
 	private static final String DB_DIALECT="org.hibernate.dialect.H2Dialect";
 	
-	@Bean
+	@Bean("dataSource")
 	public DataSource getDS()
 	{   
 	   BasicDataSource ds=new BasicDataSource();

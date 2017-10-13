@@ -131,5 +131,15 @@ public class PageController {
 		return mv;
 		
 	}
-
+	/**
+	 * Having Similar mapping to our Flow Id
+	 * @param m
+	 * @return
+	 */
+	/*@RequestMapping(value="/register")
+	public String register(ModelMap m)
+	{   
+		return "home";
+	}
+*/
 }

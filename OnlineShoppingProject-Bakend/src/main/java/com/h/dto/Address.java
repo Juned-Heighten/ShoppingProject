@@ -1,5 +1,7 @@
 package com.h.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,21 +9,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
-public class Address {
+public class Address implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@ManyToOne  
 	private User user;
 	@Column(name="address_line_one")
+	@NotBlank(message="Please Enter The address")
 	private String  addressLineOne;
 	@Column(name="address_line_two")
 	private String addressLineTwo;
+	@NotBlank(message="Please Enter The City")
 	private String city;
+	@NotBlank(message="Please Enter The State")
 	private String state;
+	@NotBlank(message="Please Enter The Country")
 	private String country;
 	@Column(name="postal_code")
+	@NotBlank(message="Please Enter The PIN")
 	private String postalCode;
 	@Column(name="is_billing")
 	private boolean billing;

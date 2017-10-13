@@ -1,5 +1,7 @@
 package com.h.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,25 +10,47 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity  
 @Table(name="user_details")
-public class User {
+public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@NotBlank(message="Please Enter The Firstname")
 	@Column(name="first_name")
+	
 	private String firstName;
 	@Column(name="last_name")
 	private String lastName;
+	@NotBlank(message="Please Enter The Email")
 	private String email;
 	@Column(name="contact_number")
+	@NotBlank(message="Please Enter The Contact No")
 	private String contactNumber;
+	@NotBlank(message="Select role")
 	private String role;
+	@NotBlank(message="Please Enter The Password")
 	private String password;
+	@Transient
+	private String confirmPassword;
 	private boolean enable=true;
 	@OneToOne(mappedBy="user",cascade=CascadeType.ALL)
 	private Cart cart;
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 	public Cart getCart() {
 		return cart;
 	}

@@ -55,9 +55,15 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getByEmail(String email) {
-
+        try
+        {
 		return sf.getCurrentSession().createQuery(GET_USER_BY_EMAIL, User.class).setParameter("email", email)
 				.getSingleResult();
+        }
+        catch(Exception e)
+        {
+        	return null;
+        }
 	}
 
 	@Override
