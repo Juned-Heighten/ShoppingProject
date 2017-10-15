@@ -135,6 +135,7 @@ public class PageController {
 	 * Having Similar mapping to our Flow Id
 	 * @param m
 	 * @return
+	 * to avoid it use order=-1 in xml
 	 */
 	/*@RequestMapping(value="/register")
 	public String register(ModelMap m)
@@ -142,4 +143,14 @@ public class PageController {
 		return "home";
 	}
 */
+	
+	@RequestMapping("/login")
+	public ModelAndView showLogin()
+	{
+		ModelAndView m=null;
+		m=new ModelAndView("login");
+		m.addObject("title", "Login");
+		return m;
+		
+	}
 }

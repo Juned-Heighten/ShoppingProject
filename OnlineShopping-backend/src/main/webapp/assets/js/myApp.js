@@ -265,5 +265,40 @@ if($categoryForm.length)
 	}
 
 
+//-----------------------------
+// Login Form Jquery Validation
+//-----------------------------
 
+var $loginForm=$('#loginForm');
+if($loginForm.length)
+	{
+	   $loginForm.validate({
+		   rules: {
+			   username:{
+				   required:true,
+				   email:true
+			   },
+			   password:{
+				   required:true
+			   }
+		   },
+		   messages:{
+			   
+			   username:{
+				   required:"Please Enter the user name",
+		           email: "Please Enter valid email address"
+			   },
+			   password:{
+				   required:"please enter the password"
+			   }
+			   
+		   },
+		   errorElement:"em",
+		   errorPlacement : function(error,element){
+			   error.addClass('help-block');
+			   //add the error elemet after the input field
+			   error.insertAfter(element);
+		   }
+	   });
+	}
 		
