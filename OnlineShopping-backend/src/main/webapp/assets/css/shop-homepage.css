@@ -41,6 +41,10 @@ footer{
 	width:50px;
 }
 
+.table-responsive{
+	overflow-x:inherits;
+}
+
 
 
 .switch {

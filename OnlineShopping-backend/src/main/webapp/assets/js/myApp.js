@@ -71,15 +71,22 @@ if($table.length)
     			"mRender": function(data,type,row){
     					var str='';
     					str+='<a href="http://localhost:8888/OnlineShopping-backend/show/'+data+'/products" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open">View</a> &#168;'
-    					if(row.quantity < 1)
-    						{
-    						str+='<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>'
-    						}
-    					else{
-    						
-    					str+='<a href="http://localhost:8888/OnlineShopping-backend/cart/add/'+data+'/products" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>'
-    					}
-    					return str;
+								    					if (window.userRole == 'ADMIN') {
+									str += '<a href="http://localhost:8888/OnlineShopping-backend/manage/'
+											+ data
+											+ '/products" class="btn btn-warning"><span class="glyphicon glyphicon-pencil">Edit</a>'
+								} else {
+									if (row.quantity < 1) {
+										str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>'
+									} else {
+
+										str += '<a href="http://localhost:8888/OnlineShopping-backend/cart/add/'
+												+ data
+												+ '/products" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>'
+
+									}
+								}
+								return str;
     					
     				}
     		},
@@ -302,3 +309,13 @@ if($loginForm.length)
 	   });
 	}
 		
+//for handling CSRF token
+var token = $('meta[name="_csrf"]').attr('content');
+var header = $('meta[name="_csrf_header"]').attr('content');
+
+if((token!=undefined && header !=undefined) && (token.length > 0 && header.length > 0)) {		
+	// set the token header for the ajax request
+	$(document).ajaxSend(function(e, xhr, options) {			
+		xhr.setRequestHeader(header,token);			
+	});				
+}

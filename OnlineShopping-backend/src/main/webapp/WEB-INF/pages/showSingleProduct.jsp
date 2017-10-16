@@ -40,7 +40,7 @@
 </c:choose>
 
 
-
+<security:authorize access="hasAuthority('USER')">
 <c:choose>
     <c:when test="${product.quantity<1}">
     <a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>
@@ -49,12 +49,14 @@
    <a href="http://localhost:8888/OnlineShopping-backend/cart/add/${product.categoryId}/products" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart">Add To cart</a>
 </c:otherwise>
 </c:choose>
+</security:authorize>
 
-
-
+<security:authorize access="hasAuthority('ADMIN')">
+<a href="http://localhost:8888/OnlineShopping-backend/manage/${product.categoryId}/products" class="btn btn-warning"><span class="glyphicon glyphicon-shopping-cart">Edit</a>
+</security:authorize>
 
 <a href="${pageContext.request.contextPath}/show/all/products" class="btn btn-primary">
-<span class="glyphicon glyphicon-eye-open"></span>Back</a>
+<span class="glyphicon glyphicon-pencil"></span>Back</a>
 
 </div>
 </div>

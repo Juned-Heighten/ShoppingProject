@@ -36,21 +36,47 @@ window.ctx='${cr}';
 
 <body>
 	<div class="wrapper">
+
 		<!-- Navigation -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-brand">
-					<a href="${cr}/home">Online Shopping</a>
-
-				</div>
-
+	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	        <div class="container">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+	                <a class="navbar-brand" href="${cr}/home">Online Shopping</a>
+	            </div>
 			</div>
-
 		</nav>
 
 		<!-- Page Content -->
 		<div class="content">
+		
+		<div class="container">
+	<!--This Div Will be dispalyed if credentials are worong  -->	
+		<c:if test="${not empty message}">
+		<div class="row">
+
+		<div class="col-md-offset-3 col-md-6">
+		<div class="alert alert-danger">
+		    ${message}
+		</div>
+		</div>
+		</div>
+		
+		</c:if>
+		
+		
+		<!--This Div Will be dispalyed if User has logged out  -->	
+		<c:if test="${not empty logout}">
+		<div class="row">
+
+		<div class="col-md-offset-3 col-md-6">
+		<div class="alert alert-success">
+		    ${logout}
+		</div>
+		</div>
+		</div>
+		
+		</c:if>
 
 			<div class="row">
 
@@ -83,14 +109,22 @@ window.ctx='${cr}';
 								</div>
 								<div class="form-group">
 									<div class="col-md-offset-4 col-md-8">
-										<input type="hidden" name="${_csrf.parameterName}"
-											value="${_csrf.token}" /> <input type="submit" value="Login"
+										 <input type="submit" value="Login"
 											class="btn btn-primary" />
+											
+											<input type="hidden" name="${_csrf.parameterName}"
+											value="${_csrf.token}" />
 									</div>
 								</div>
 							</form>
 
 						</div>
+						</div>
+						</div>
+						</div>
+						</div>
+						</div>
+						
 						<!-- Footer -->
 						<%--  <%@include file="./shared/footer.jsp"%>--%>
 
@@ -105,11 +139,7 @@ window.ctx='${cr}';
 
 
 						<script src="${js}/myApp.js"></script>
-</div>
-</div>
-</div>
 
-</div>
 </div>
 </body>
 </html>

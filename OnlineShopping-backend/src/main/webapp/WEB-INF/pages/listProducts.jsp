@@ -20,7 +20,7 @@
 
 				<div class="col-lg-12">
 					<c:if test="${sap==true}">
-					<script>
+						<script>
 					window.categoryId='';
 					</script>
 						<ol class="breadcrumb">
@@ -33,7 +33,7 @@
 
 
 					<c:if test="${scp==true}">
-					<script>
+						<script>
 					window.categoryId='${c.id}';
 					</script>
 						<ol class="breadcrumb">
@@ -51,43 +51,51 @@
 				</div>
 
 			</div>
-                 <div class="row">
-                 
-                 <div class="col-xs-12">
-                 
-                 <table id="listProducts" class="table table-striped table-borderd">
-                 
-                 <thead>
-                   <tr>
-                     <th></th>
-                     <th>Name</th>
-                     <th>Brand</th>
-                     <th>Unit Price</th>
-                     <th>Quantity</th>
-                     <th>Purchases</th>
-                     <th>Views</th>
-                     <th>Links</th>
-                     
-                   </tr>
-                </thead>
-                 <tfoot>
-                     <tr>
-                     <th></th>
-                     <th>Name</th>
-                     <th>Brand</th>
-                     <th>Unit Price</th>
-                     <th>Quantity</th>
-                     <th>Purchases</th>
-                     <th>Views</th>
-                     <th>Links</th>
-                   </tr>
-                 </tfoot>
-                 
-                 </table>
-                 
-                 </div>
-                 
-                 </div>
+			<div class="row">
+
+				<div class="col-xs-12">
+					<div class="container-fluid">
+
+						<div class="table-responsive">
+							<table id="listProducts"
+								class="table table-striped table-borderd">
+
+								<thead>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Unit Price</th>
+										<th>Quantity</th>
+										<th>Purchases</th>
+										<th>Views</th>
+										<th>Links</th>
+
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Unit Price</th>
+										<th>Quantity</th>
+										<th>Purchases</th>
+										<th>Views</th>
+										<th>Links</th>
+									</tr>
+								</tfoot>
+
+							</table>
+
+						</div>
+
+					</div>
+
+
+				</div>
+
+			</div>
 		</div>
 
 	</div>
