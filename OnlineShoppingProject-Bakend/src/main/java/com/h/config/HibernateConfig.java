@@ -15,11 +15,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.h.dto.Address;
 import com.h.dto.Cart;
+import com.h.dto.CartLine;
 import com.h.dto.Category;
 import com.h.dto.Product;
 import com.h.dto.User;
 
-@Configuration
+@Configuration  
 @EnableTransactionManagement
 @ComponentScan(basePackages="com")
     
@@ -52,6 +53,7 @@ public class HibernateConfig {
 		fb.addAnnotatedClass(User.class);
 		fb.addAnnotatedClass(Address.class);
 		fb.addAnnotatedClass(Cart.class);
+		fb.addAnnotatedClass(CartLine.class);
 		//fb.scanPackages("com");
 		return fb.buildSessionFactory();
 	}

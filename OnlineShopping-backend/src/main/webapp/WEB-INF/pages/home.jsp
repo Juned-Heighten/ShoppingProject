@@ -74,6 +74,10 @@ window.ctx='${cr}';
 				<!-- /.container -->
 			</c:if>
 			
+			<c:if test="${userClickShowCart eq true}">
+				<%@include file="Cart.jsp"%>
+			</c:if>
+			
 			
 			<c:if test="${userClickShowProduct eq true}">
 				<%@include file="showSingleProduct.jsp"%>
