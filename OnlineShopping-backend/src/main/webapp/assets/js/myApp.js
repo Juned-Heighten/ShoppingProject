@@ -319,3 +319,15 @@ if((token!=undefined && header !=undefined) && (token.length > 0 && header.lengt
 		xhr.setRequestHeader(header,token);			
 	});				
 }
+
+//Handling the Click Event of refereshCart button
+$('button[name="refreshCart"]').click(function(){
+	var cartLineId = $(this).attr('value');
+	var countField = $('#count_' + cartLineId);
+	var originalCount = countField.attr('value');
+	// do the checking only the count has changed
+	if(countField.val() !== originalCount) {	
+		
+	}
+	console.log('hiiiiiiiiiiii');
+});		

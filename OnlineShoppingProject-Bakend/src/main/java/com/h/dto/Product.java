@@ -31,7 +31,7 @@ public class Product implements Serializable {
 	@NotBlank(message="Please enter name")
 	private String name;
 	@NotBlank(message="please enter brand")
-	private String brand;
+	private String brand; 
 	
 	@NotBlank(message="please enter description")
 	private String description;
